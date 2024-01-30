@@ -1,0 +1,34 @@
+
+
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+ <title>Tasks</title>
+</head>
+<body>
+
+{%include 'base.html'%}
+{%if tasks is not None %}
+{% for task in tasks %}
+<div class="task">
+    <h2>Task</h2>
+
+        <div>
+            <h3>{{ task.Title }}</h3>
+            <p>{{ task.Description }}</p>
+            <p>Due Date: {{ task.Date }}</p>
+        </div>
+
+</div>
+{% endfor %}
+{%else%}
+<div class="task">
+    <h1>You didn't add any tasks</h1>
+
+</div>
+{%endif%}
+</body>
+</html>

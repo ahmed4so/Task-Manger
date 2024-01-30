@@ -1,0 +1,32 @@
+{%include 'base.html'%}
+
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+  <title>Account</title>
+</head>
+<body>
+
+
+    <div class="account">
+        <h1>Your Account Information</h1>
+        <p>Full Name: {{fullname}}</p>
+        <br>
+        <p>Username: {{username}}</p>
+        <br>
+        <p>Email: {{EMAIL}}</p>
+        <br>
+        <p>Gender:{{gender}}</p>
+        <br>
+        {%if user.is_authenticated %}
+        <button><a href="{%url 'logout'%}">Logout</a></button>
+        {%else%}
+        <button><a href="">login</a></button>
+
+        {%endif%}
+    </div>
+</body>
+</html>
